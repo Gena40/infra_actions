@@ -71,7 +71,7 @@ jobs:
         passphrase: ${{ secrets.PASSPHRASE }}
         script: |
           # Выполняет pull образа с DockerHub
-          sudo docker pull ${{ secrets.DOCKER_USERNAME }}/infra_prj
+          sudo docker pull ${{ secrets.DOCKER_USERNAME }}/infra_prj:latest
           #остановка всех контейнеров
           sudo docker stop $(sudo docker ps -a -q)
-          sudo docker run --rm -d -p 5000:5000 ${{ secrets.DOCKER_USERNAME }}/infra_prj
+          sudo docker run --rm -d -p 5000:5000 ${{ secrets.DOCKER_USERNAME }}/infra_prj:latest
